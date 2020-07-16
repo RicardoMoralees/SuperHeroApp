@@ -4,6 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity">
+    android:id="@+id/main_container"
+    tools:context=".views.activities.MainActivity">
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/search_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:queryHint="@string/buscar_heroe"
+        android:focusedByDefault="false"
+        android:focusableInTouchMode="false"
+        android:focusable="false"
+        android:defaultFocusHighlightEnabled="false"
+        app:iconifiedByDefault="false"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/search_home"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_home_heroes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:layout_constraintBottom_toTopOf="@+id/load_heroes"/>
+
+    <ProgressBar
+        android:id="@+id/load_heroes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:indeterminateTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:indeterminate="true" />
 
 </android.support.constraint.ConstraintLayout>
